@@ -1,0 +1,17 @@
+# applications/finance
+
+applications/finance/payment_acquirers.rst applications/finance/payment_providers.rst
+applications/finance/payment_acquirers/adyen.rst applications/finance/payment_providers/adyen.rst
+applications/finance/payment_acquirers/alipay.rst applications/finance/payment_providers/alipay.rst
+applications/finance/payment_acquirers/authorize.rst applications/finance/payment_providers/authorize.rst
+applications/finance/payment_acquirers/buckaroo.rst applications/finance/payment_providers/buckaroo.rst
+applications/finance/payment_acquirers/flutterwave.rst applications/finance/payment_providers/flutterwave.rst
+applications/finance/payment_acquirers/mollie.rst applications/finance/payment_providers/mollie.rst
+applications/finance/payment_acquirers/ogone.rst applications/finance/payment_providers/ogone.rst
+applications/finance/payment_acquirers/paypal.rst applications/finance/payment_providers/paypal.rst
+applications/finance/payment_acquirers/sips.rst applications/finance/payment_providers/sips.rst
+applications/finance/payment_acquirers/stripe.rst applications/finance/payment_providers/stripe.rst
+applications/finance/payment_acquirers/wire_transfer.rst applications/finance/payment_providers/wire_transfer.rst
+
+# applications/websites
+applications/websites/ecommerce/shopper_experience/payment_acquirer.rst applications/websites/ecommerce/shopper_experience/payment_provider.rst
