@@ -248,7 +248,7 @@ Tax Report
 The tax report is declared in the :guilabel:`Invoicing` (`account`) app, but the report is only accessible when :guilabel:`Accounting` (`account_accountant`) is installed.
 
 .. seealso::
-   - :ref:`Tax Report Line References <reference/account_tax_report_line>`
+   - :ref:`Tax Report Line References <reference/account_report_line>`
    - :doc:`/applications/finance/accounting/reporting/declarations/tax_returns`
 
 In the previous section, you noticed the fields `invoice_repartition_line_ids` or `refund_repartition_line_ids` and probably understood nothing about them. Good news: you are not alone on this incomprehension. Bad news: you have to figure it out a bit. The topic is complicated. Indeed:
@@ -265,20 +265,21 @@ And fortunately we have a presentation explaining the tax reports (as in version
     :width: 700
     :height: 394
 
-So, once you have properly configured taxes, you just need to add the :file:`data/account_tax_report_data.xml` file with a record for your `account.tax.report` at the beginning:
+So, once you have properly configured taxes, you just need to add the :file:`data/account_tax_report_data.xml` file with a record for your `account.report` at the beginning and the root_report_id of the report. So the the report will be considered as a tax report.
 
 .. code-block:: xml
 
     <odoo>
-        <record id="tax_report" model="account.tax.report">
+        <record id="tax_report" model="account.report">
             <field name="name">Tax Report</field>
+            <field name="root_report_id" ref="account.generic_tax_report"/>
             <field name="country_id" ref="base.XX"/>
         </record>
 
         ...
     </odoo>
 
-... followed by the declaration of its lines, as `account.tax.report.line` records.
+... followed by the declaration of its lines, as `account.report.line` records.
 
 .. example::
   `addons/l10n_au/data/account_tax_report_data.xml <{GITHUB_PATH}/addons/l10n_au/data/account_tax_report_data.xml>`_
@@ -361,7 +362,8 @@ Basic :file:`__manifest__.py` file for such a module looks as following:
             "l10n_XX", "account_reports"
         ],
         "data": [
-            "data/account_financial_html_report_data.xml",
+            "data/balance_sheet.xml",
+            "data/profit_and_loss.xml",
         ],
         "auto_install": True,
     }
@@ -371,16 +373,17 @@ Functional overview of financial reports is here: :doc:`/applications/finance/ac
 
 Some good examples:
 
-* `l10n_ch_reports/data/account_financial_html_report_data.xml <{GITHUB_ENT_PATH}/l10n_ch_reports/data/account_financial_html_report_data.xml>`_
-* `l10n_be_reports/data/account_financial_html_report_data.xml <{GITHUB_ENT_PATH}/l10n_be_reports/data/account_financial_html_report_data.xml>`_
+* `l10n_ch_reports/data/balance_sheet.xml <{GITHUB_ENT_PATH}/l10n_ch_reports/data/balance_sheet.xml>`_
+* `l10n_be_reports/data/profit_and_loss.xml <{GITHUB_ENT_PATH}/l10n_be_reports/data/profit_and_loss.xml>`_
 
 For the fields' meaning, dive directly to the source:
 
-* `account.financial.html.report (v15) <https://github.com/odoo/enterprise/blob/d4eff9d39469cf3fe18589a1547cb0cdb93f4ae9/account_reports/models/account_financial_report.py#L59-L75>`_
-* `account.financial.html.report.line (v15) <https://github.com/odoo/enterprise/blob/d4eff9d39469cf3fe18589a1547cb0cdb93f4ae9/account_reports/models/account_financial_report.py#L931-L964>`_
+* `account.report (v16) <https://github.com/odoo/enterprise/blob/d4eff9d39469cf3fe18589a1547cb0cdb93f4ae9/account_reports/models/account_financial_report.py#L59-L75>`_
+* `account.report.line (v16) <https://github.com/odoo/enterprise/blob/d4eff9d39469cf3fe18589a1547cb0cdb93f4ae9/account_reports/models/account_financial_report.py#L931-L964>`_
 
-The menu for the new report is created automatically. By default, it is located under :menuselection:`Accounting -> Reporting`.
-To create a dedicated section in the :guilabel:`Reporting` menu, you need to create a new `ir.ui.menu` record (usually in the main `l10n_XX` module) and set it as `parent_id` field in the `account.financial.html.report` model. Example for the Belgian localization:
+The menu for new basic reports are already created. By default, it is located under :menuselection:`Accounting -> Reporting`. Then on the generic report (E.g. Balance Sheet) it will be selectable as a variant report.
+
+To create a dedicated section for a totally new report in the :guilabel:`Reporting` menu, you need to create a new `ir.ui.menu` record (usually in the main `l10n_XX` module) and a new `ir.actions.client` (usually in the new report xml file) that calls the `account.report` with  the new report id. Then set the new menu as `parent_id` field in the action model. Example for the Belgian localization:
 
 * `ir.ui.menu record in l10n_be <{GITHUB_PATH}/addons/l10n_be/data/menuitem_data.xml>`_
-* `parent_id field in l10n_be_reports (v15) <https://github.com/odoo/enterprise/blob/d4eff9d39469cf3fe18589a1547cb0cdb93f4ae9/l10n_be_reports/data/account_financial_html_report_data.xml#L11>`_
+* `parent_id field in l10n_be_reports (v16) <https://github.com/odoo/enterprise/blob/a1614d0b1460dc453cbe395efba41573d29e7b7e/l10n_be_reports/data/partner_vat_listing.xml#L55-L65>`_
