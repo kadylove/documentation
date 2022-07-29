@@ -1,88 +1,322 @@
-========================
-Get Started with Surveys
-========================
+=================
+Survey essentials
+=================
 
-Surveys can be used for a range of purposes that can go from collecting customer feedback, evaluate
-the success of an event, measure how pleased customers are with your products/services, gauge
-whether employees are happy and satisfied with their work environment, and even to find out what
-your market is thinking.
+Companies often use surveys to collect valuable information from their customers and/or employees,
+which in turn, they use to make more informed business decisions.
 
-Get started
-===========
+Surveys can be used for a number of different purposes. They can be used to collect customer
+feedback, evaluate the success of a recent event, measure the satisfaction of customers (or
+employees), learn what the market is *really* thinking, and so much more.
 
-When creating your survey, choose a *Title* and *Category*. The *Category* field is used to know in
-which context the survey is being conducted, as different applications might use it for different
-purposes such as recruitment, certification, or employee appraisal.
+Getting started
+===============
 
-.. image:: create/new_survey.png
+To begin, click :guilabel:`Create` on the :guilabel:`Surveys` dashboard.
+
+Odoo redirects the page to a blank survey template form. 
+
+First, choose a :guilabel:`title` for the survey. Next, add a cover image to the survey by clicking
+the :guilabel:`photo icon`. However, choosing a photo is not required.
+
+.. image:: create/title-photo-icon.png
    :align: center
-   :alt: Form view of a survey with a title and category being chosen in Odoo Surveys
+   :alt: Survey title field and upload photo icon.
 
-Tab: Questions
---------------
+Below the :guilabel:`title` is an option to assign the responsibility of the survey to a user in
+the database. Next, are various tabs in which the survey can be created, customized, and
+configured. These tabs are labeled as follows: :guilabel:`Questions`, :guilabel:`Options`,
+:guilabel:`Description`, and :guilabel:`End Message`.
 
-| Add sections and questions by clicking on the respective links.
-| On the *Sections and Questions* form, once the question type is chosen and the answer added,
-  under the tab *Options*, enable *Mandatory Answer*, and set an *Error message* to be shown
-  when the user tries to submit the survey without answering the respective question.
-| Depending on the *Question Type*, the tab *Options* aggregates extra and different
-  possibilities. Examples:
-
-- *Single Line Text Box* - can choose a minimum and maximum text length (number of characters -
-  spaces do not count), and its error message.
-- *Multiple choice: multiple answers allowed*: choose between radio buttons or a dropdown menu
-  list, and if you would like to have a comment field. If the user select an answer and type a
-  comment, the values are separately recorded. Or, enable the comment field to be
-  displayed as an answer choice, with which a text type field is displayed.
-- *Matrix Type*: choose if you would like to have one or multiple choices per row.
-
-.. image:: create/sections_questions.png
+.. image:: create/questions-description-options.png
    :align: center
-   :alt: Sections and questions view of a survey in Odoo Surveys
+   :alt: Various tabs that can be found on survey template page.
 
-Tab: Description
+Questions tab
+=============
+
+Add questions and sections to surveys through the :guilabel:`Questions` tab. A section will divide
+the survey into parts; to make one, simply click :guilabel:`Add a section` and type in a name.
+Then add questions or drag and drop questions into the divided parts.
+
+Clicking :guilabel:`Add a question` opens a pop-up to customize the survey question.
+
+.. image:: create/survey-question-pop-up.png
+   :align: center
+   :alt: Blank survey question pop-up window.
+
+Create questions
 ----------------
 
-Write a *Description* to be displayed under the title of the survey's homepage.
+After the question has been written in the "*Question*" field, choose the
+:guilabel:`Question Type`. A preview of the question type is shown in the window, as well.
 
-.. image:: create/frontend_description.png
+.. image:: create/preview-question-type.png
    :align: center
-   :alt: Frontend of a survey showing the title and description of a survey for Odoo Surveys
+   :alt: Preview of question type for survey.
 
-.. tip::
-   Click on *Edit* to personalize your pages with the website builder.
+Choose from the following :guilabel:`Question Types` :
 
-Tab: Options
-------------
+- :guilabel:`Multiple choice: only one answer`
+- :guilabel:`Multiple choice: multiple answers allowed`
+- :guilabel:`Multiple Lines Text Box`
+- :guilabel:`Single Line Text Box`
+- :guilabel:`Numerical Value`
+- :guilabel:`Date`
+- :guilabel:`Datetime`
+- :guilabel:`Matrix`
 
-Under the tab *Options*, choose the *Layout* of your questions. If choosing *One page per section* or
-*One page per question*, an option *Back Button* becomes available, which allows the user to go back
-pages.
+.. note::
+   Different features will appear in the :guilabel:`Answers` and :guilabel:`Options` tabs,
+   depending on the :guilabel:`Question Type` chosen. However, the :guilabel:`Description` tab
+   will always remain the same, regardless of what question is chosen.
 
-.. image:: create/tab_options_layout.png
+Create Sections and Questions Tabs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once a :guilabel:`Question Type` has been selected, there are three possible tabs where information
+can be customized for your question. These include the :guilabel:`Answers` (if applicable),
+:guilabel:`Description`, and :guilabel:`Options` tabs. 
+
+Each tab offers a variety of different features (depending on what :guilabel:`Question Type` was
+chosen).
+
+Odoo provides a plethora of professional features and options to enhance the quality of your
+question, so be sure to check each tab for an array of unique aspects and elements. 
+
+For example, in the :guilabel:`Options` tab, the following options may appear: 
+
+- :guilabel:`Answers`
+
+    - :guilabel:`Placeholder` (Help Participants know what to write)
+    - :guilabel:`Show Comments Field`
+    - :guilabel:`Validate Entry`
+    - :guilabel:`Matrix Type` (How many choices per row)
+
+- :guilabel:`Constraints`
+
+    -:guilabel:`Mandatory Answer`
+
+- :guilabel:`Layout`
+
+    - :guilabel:`Conditional Display`
+
+- :guilabel:`Live Sessions`
+
+    - :guilabel:`Question Time Limit`
+
+Conditional Display
+*******************
+
+:guilabel:`Conditional Display` means this question will only be displayed if the specified
+conditional answer has been selected in a previous question.
+
+.. image:: create/conditional-triggering-fields.png
    :align: center
-   :alt: Form view of a survey emphasizing the layout feature under options in Odoo Surveys
+   :alt: Conditional display and triggering fields.
 
-Test and share the survey
-=========================
+If the box next to:guilabel:`Conditional Display` is selected, the :guilabel:`Triggering Question`
+field appears.
 
-| Once your Survey is ready, *Test* it to avoid *Sharing* it with potential errors. As answers get
-  collected, click on *Answers* to access all the details of the respondent and his answers.
-| By default, a filter *Except Test Entries* is applied to keep the list of entries clean with only
-  real participants.
+Then, once a :guilabel:`Triggering Question` is picked, a :guilabel:`Triggering Answer` field
+appears.
 
-.. image:: create/user_feedback.png
+Here, select which answer will trigger this :guilabel:`Conditional Display` question.
+
+.. image:: create/conditional-triggering-answers.png
    :align: center
-   :alt: View list of the participations of a survey in Odoo Surveys
+   :alt: Conditional triggering answer fields.
 
-| Another way to access detailed answers is by going to :menuselection:`Participations -->
-  Participations`.
-| Click on *See results* to be redirected to an analytical page.
+.. note::
+   Click :guilabel:`Save & Close`, and Odoo will redirect the page back to the survey template
+   page. There is also the option to click :guilabel:`Save & New` which will  open another new
+   question.
 
-.. image:: create/analytical_page.png
+Options tab
+===========
+
+Back on the main survey template form, under the :guilabel:Options` tab, there are different
+sections of settings that can be modified.
+
+The sections include:
+- :guilabel:`Questions`
+- :guilabel:`Time & Scoring`
+- :guilabel:`Participants`
+- :guilabel:`Live Session`
+
+.. image:: create/survey-options-tab.png
    :align: center
-   :alt: View of an analytical page for Odoo Surveys
+   :alt: Options tab on survey template form.
+
+Questions
+---------
+
+This section primarily focuses on the overall presentation of your survey.
+
+First, select the :guilabel:Pagination` or the layout of the survey. The following options can be
+chosen:
+
+- :guilabel:`One page with all the questions`
+- :guilabel:`One page per section`
+- :guilabel:`One page per question`
+
+Should either :guilabel:`One page per section` or :guilabel:`One page per question` options be
+chosen then a section called :guilabel:`Display Progress as` will populate. It indicates how to
+display the participant's progress during the survey. 
+
+It can be shown as either a :guilabel:Percentage left` or a :guilabel:Number`.
+
+After the :guilabel:`Display Progress as` option is a section labeled
+:guilabel:`Question Selection`. Here questions can be randomized per section, in other words the
+number of random questions can be configured by section. This mode is ignored in a live session.
+
+There is also the option to provide participants with a `Back Button`, if desired. This option will
+only appear should either :guilabel:`One page per section` or :guilabel:`One page per question`
+options be chosen
+
+.. image:: create/questions-setting-section.png
+   :align: center
+   :alt: Questions section of survey settings.
 
 .. seealso::
-   - :doc:`scoring`
-   - :doc:`time_random`
+    - :doc:`time_random`
+
+Time & Scoring
+--------------
+
+In this section, you decide how you want the survey to be scored. 
+
+The first option available is to add a :guilabel:`Survey Time Limit`. To implement this option,
+simply check the box, and enter the amount of time (in minutes) participants will have to complete
+the survey.
+
+Beneath the :guilabel:`Survey Time Limit`are the various :guilabel:`Scoring` options.
+
+The following options can be chosen:
+
+- :guilabel:`No scoring`
+- :guilabel:`Scoring with answers at the end`
+- :guilabel:`Scoring without answers at the end`
+
+If either the :guilabel:`Scoring with answers at the end` or
+:guilabel:`Scoring without answers at the end` options are selected then a
+:guilabel:`Required Score` field will populate.  
+
+Next, there is the option to make the survey a certification. To do so, check the box next to the
+option labeled :guilabel:`Is a Certification`," and two more additional fields will populate. 
+
+A color theme can be selected and a :guilabel:`Certified Email Template` can be chosen. When
+someone passes the certification with the required score an email will automatically be sent to
+that person, using the selected email template. 
+
+.. image:: create/survey-scoring-section.png
+   :align: center
+   :alt: Scoring section of survey settings.
+
+.. seealso::
+    - :doc:`scoring`
+
+Participants
+------------
+
+In the :guilabel:`Participants`section, access to the survey can be managed..
+
+The :guilabel:`Access Mode` has two options to choose between: :guilabel:`Anyone with the link`
+and :guilabel:`Invited people only`. 
+
+Below the :guilabel:`Appraisal Managers Only` checkbox, is the option to require a login in order
+to participate in this survey. If this option is activated then a :guilabel:`Limit attempts` field
+will populate, in which the number of certification attempts can be defined for the person taking
+the survey/certification.
+
+.. image:: create/participants-section.png
+   :align: center
+   :alt: Candidates section of survey settings.
+
+Live Session
+------------
+
+This section is dedicated to users who are conducting :guilabel:`Live Session` surveys, wherein
+they directly engage with an audience and gather their answers in real-time.
+
+Here, the specific :guilabel:`Session Code` can be customized; this will be needed for participants
+to access the Live Session survey. Reward participants for quick answers by selecting the checkbox
+labeled :guilabel:`Reward quick answers`. Attendees will get more points if they answer quickly.
+
+.. image:: create/live-session-setting.png
+   :align: center
+   :alt: Live session section of survey features.
+
+Description tab
+===============
+
+Back on the main survey template page is the :guilabel:`Description` tab where a custom description
+of your survey can be added. This will be displayed beneath the title on the survey's homepage,
+which is on the front end of the website made through the :guilabel:`Odoo Website` app.
+
+.. image:: create/survey-description-tab.png
+   :align: center
+   :alt: Back-end view of how survey description looks.
+
+Here's what it looks like on the frontend of the website:
+
+.. image:: create/front-end-description.png
+   :align: center
+   :alt: Front-end view of how survey description looks.
+
+End Message tab
+===============
+
+In the *End Message* tab, there is a blank text field, with the option to write a personalized
+message to the participants. This message will appear once the survey has been completed.
+
+.. image:: create/end-message-tab.png
+   :align: center
+   :alt: This is how the end message tab looks in the surveys app.
+
+Here's what it looks like on your website:
+
+.. image:: create/front-end-end-message.png
+   :align: center
+   :alt: Front-end view of how the survey end message looks.
+
+Test & Share
+============
+
+Once everything is created and saved, the survey can be tested to check for possible errors before
+sending it out to the participants.
+
+To do that, simply click *Test* in the upper left corner of the survey template page.
+
+.. image:: create/test-survey-button.png
+   :align: center
+   :alt: Test smart button on survey template form.
+
+When clicked, Odoo redirects the page to a test version of the survey on the front end of the
+website, this page displays how the survey will look to participants. Proceed to run through the
+survey, like a normal participant, and check for errors.
+
+Along the top of the page, there is a blue banner that reads: :guilabel:`This is a test survey`.
+To return to the survey template form in the backend, simply click the :guilabel:`This is a test
+survey. Edit Survey` link in the blue banner.
+
+.. image:: create/blue-banner-test.png
+   :align: center
+   :alt: Blue banner on test survey with link.
+
+Once Odoo redirects the page to the survey template in the backend; make any necessary changes (or
+modifications) before officially sending it out to potential participants.
+
+When you're satisfied with how the survey looks, and you're ready to share it with your audience,
+simply click *Share* in the upper-left corner.
+
+.. image:: create/share-survey-button.png
+   :align: center
+   :alt: Start survey smart button on survey template form.
+
+As answers get collected, check them by clicking the :guilabel:`Answers` smart button on the survey
+template form, or the :guilabel:`See Results` button in the upper left corner.
+
+.. seealso::
+    - :doc:`scoring`
+    - :doc:`time_random`
