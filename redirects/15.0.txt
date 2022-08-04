@@ -1,5 +1,6 @@
 # applications/finance
 
+applications/finance/accounting/others/multicurrencies/how_it_works.rst applications/finance/accounting/others/multicurrencies/multicurrency.rst
 applications/finance/accounting/payables/supplier_bills/ocr.rst applications/finance/accounting/payables/supplier_bills/invoice_digitization.rst    # ocr --> invoice_digitization
 
 # applications/general
