@@ -96,7 +96,7 @@ Did it not appear? Maybe try removing the default 'Apps' filter ;-)
 
 .. warning::
    Remember to enable the :ref:`developer mode <developer-mode>` as explained in the previous
-   chapter. You won't see the :guilabel:`Update Apps List` button otherwise.
+   chapter. You won't see the :guilabel:`Update Apps List` button otherwise.(这里需要手动去刷新一下才可以进行更新)
 
 .. exercise:: Make your module an 'App'.
 
